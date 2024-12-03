@@ -8,7 +8,11 @@ interface AnswerQuestionUseCaseResquest {
 
 export class AnswerQuestionUseCase{
   execute({instructorID, questionID, content}: AnswerQuestionUseCaseResquest){
-    const answer = new Answer(content);
+    const answer = new Answer({
+      content,
+      authorID: instructorID,
+      questionID
+    });
 
     return answer
   }
