@@ -8,6 +8,10 @@ interface AnswerQuestionUseCaseResquest {
   content: string
 }
 
+interface AnswerQuestionUseCaseResponse {
+  answer: Answer
+}
+
 export class AnswerQuestionUseCase {
   // eslint-disable-next-line no-useless-constructor
   constructor(private answersRepository: AnswersRepository) {}
@@ -16,7 +20,7 @@ export class AnswerQuestionUseCase {
     instructorID,
     questionID,
     content,
-  }: AnswerQuestionUseCaseResquest) {
+  }: AnswerQuestionUseCaseResquest): Promise<AnswerQuestionUseCaseResponse> {
     const answer = Answer.create({
       content,
       authorID: new UniqueEntityID(instructorID),
@@ -24,6 +28,7 @@ export class AnswerQuestionUseCase {
     })
 
     await this.answersRepository.create(answer)
-    return answer
+
+    return { answer }
   }
 }
