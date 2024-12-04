@@ -1,5 +1,5 @@
 import { UniqueEntityID } from '@/core/entities/unique-entity-id'
-import { AnswerRepository } from '@/domain/forum/app/repositories/answer-repository'
+import { AnswersRepository } from '@/domain/forum/app/repositories/answers-repository'
 import { Answer } from '../../enterprice/entities/answer'
 
 interface AnswerQuestionUseCaseResquest {
@@ -10,7 +10,7 @@ interface AnswerQuestionUseCaseResquest {
 
 export class AnswerQuestionUseCase {
   // eslint-disable-next-line no-useless-constructor
-  constructor(private answerRepositoru: AnswerRepository) {}
+  constructor(private answersRepository: AnswersRepository) {}
 
   async execute({
     instructorID,
@@ -23,7 +23,7 @@ export class AnswerQuestionUseCase {
       questionID: new UniqueEntityID(questionID),
     })
 
-    await this.answerRepositoru.create(answer)
+    await this.answersRepository.create(answer)
     return answer
   }
 }
