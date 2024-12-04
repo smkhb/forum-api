@@ -15,7 +15,7 @@ export class Answer extends Entity<AnswerProps> {
   }
 
   get questionID() {
-    return this.props.content
+    return this.props.questionID
   }
 
   get content() {
@@ -23,11 +23,11 @@ export class Answer extends Entity<AnswerProps> {
   }
 
   get createdAt() {
-    return this.props.content
+    return this.props.createdAt
   }
 
   get updatedAt() {
-    return this.props.content
+    return this.props.updatedAt
   }
 
   get excerpt() {

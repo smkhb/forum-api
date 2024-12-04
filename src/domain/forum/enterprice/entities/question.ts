@@ -24,7 +24,7 @@ export class Question extends Entity<QuestionProps> {
   }
 
   get title() {
-    return this.props.content
+    return this.props.title
   }
 
   get content() {
@@ -32,15 +32,15 @@ export class Question extends Entity<QuestionProps> {
   }
 
   get slug() {
-    return this.props.content
+    return this.props.slug
   }
 
   get createdAt() {
-    return this.props.content
+    return this.props.createdAt
   }
 
   get updatedAt() {
-    return this.props.content
+    return this.props.updatedAt
   }
 
   get isNew(): boolean {
