@@ -1,13 +1,13 @@
-export class Slug{
+export class Slug {
   public value: string
 
   constructor(value: string) {
     this.value = value
   }
 
-  static createFromText(text: string){
+  static createFromText(text: string) {
     const slugText = text
-      .normalize("NFKD")
+      .normalize('NFKD')
       .toLocaleLowerCase()
       .trim()
       .replace(/\s+/g, '-') // replace spaces with -
@@ -16,6 +16,6 @@ export class Slug{
       .replace(/--+/g, '-') // replace double hyphens with single hyphen
       .replace(/-$/g, '') // remove trailing hyphens
 
-      return new Slug(slugText)
+    return new Slug(slugText)
   }
 }

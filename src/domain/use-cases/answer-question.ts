@@ -1,24 +1,29 @@
-import { UniqueEntityID } from "@/core/entities/unique-entity-id";
-import { Answer } from "../entities/answer";
-import { AnswerRepository } from "../repositories/answer-repository";
+import { UniqueEntityID } from '@/core/entities/unique-entity-id'
+import { Answer } from '../entities/answer'
+import { AnswerRepository } from '../repositories/answer-repository'
 
 interface AnswerQuestionUseCaseResquest {
-  instructorID: string;
-  questionID: string;
-  content: string;
+  instructorID: string
+  questionID: string
+  content: string
 }
 
-export class AnswerQuestionUseCase{
-  constructor(private answerRepositoru: AnswerRepository){}
+export class AnswerQuestionUseCase {
+  // eslint-disable-next-line no-useless-constructor
+  constructor(private answerRepositoru: AnswerRepository) {}
 
-  async execute({instructorID, questionID, content}: AnswerQuestionUseCaseResquest){
+  async execute({
+    instructorID,
+    questionID,
+    content,
+  }: AnswerQuestionUseCaseResquest) {
     const answer = Answer.create({
       content,
       authorID: new UniqueEntityID(instructorID),
-      questionID: new UniqueEntityID(questionID)
-    });
+      questionID: new UniqueEntityID(questionID),
+    })
 
-    await this.answerRepositoru.create(answer);
+    await this.answerRepositoru.create(answer)
     return answer
   }
 }
