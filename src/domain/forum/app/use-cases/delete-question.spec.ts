@@ -38,8 +38,8 @@ describe('Delete Question', () => {
     )
     await inMemoryQuestionsRepository.create(newQuestion)
 
-    expect(async () => {
-      await sut.execute({
+    await expect(async () => {
+      return sut.execute({
         questionID: 'question-1',
         authorID: 'author-2',
       })
