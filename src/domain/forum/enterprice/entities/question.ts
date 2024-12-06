@@ -16,7 +16,7 @@ export interface QuestionProps {
 
 export class Question extends Entity<QuestionProps> {
   get authorID() {
-    return this.props.content
+    return this.props.authorID
   }
 
   get bestAnswerID() {
