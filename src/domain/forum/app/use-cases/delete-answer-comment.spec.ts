@@ -28,7 +28,7 @@ describe('Delete Comment on Answer', () => {
     const answerComment = makeAnswerComment()
     await inMemoryAnswerCommentsRepository.create(answerComment)
 
-    expect(() => {
+    await expect(() => {
       return sut.execute({
         authorID: 'another-user-id',
         answerCommentID: answerComment.ID.toString(),
