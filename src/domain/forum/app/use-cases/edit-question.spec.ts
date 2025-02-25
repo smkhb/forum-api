@@ -6,8 +6,8 @@ import { NotAllowedError } from './errors/not-allowed-error'
 import { InMemoryQuestionAttachmentsRepository } from 'test/repositories/in-memory-question-attachments-repository'
 import { makeQuestionAttachment } from 'test/factories/make-question-attachment'
 
-let inMemoryQuestionsRepository: InMemoryQuestionsRepository
 let inMemoryQuestionAttachmentsRepository: InMemoryQuestionAttachmentsRepository
+let inMemoryQuestionsRepository: InMemoryQuestionsRepository
 let sut: EditQuestionUseCase
 
 describe('Edit Question', () => {
@@ -17,8 +17,6 @@ describe('Edit Question', () => {
     inMemoryQuestionsRepository = new InMemoryQuestionsRepository(
       inMemoryQuestionAttachmentsRepository,
     )
-    inMemoryQuestionAttachmentsRepository =
-      new InMemoryQuestionAttachmentsRepository()
 
     sut = new EditQuestionUseCase(
       inMemoryQuestionsRepository,
@@ -41,8 +39,6 @@ describe('Edit Question', () => {
         questionID: newQuestion.ID,
         attachmentID: new UniqueEntityID('1'),
       }),
-    )
-    inMemoryQuestionAttachmentsRepository.items.push(
       makeQuestionAttachment({
         questionID: newQuestion.ID,
         attachmentID: new UniqueEntityID('2'),

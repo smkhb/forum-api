@@ -35,8 +35,6 @@ describe('Delete Question', () => {
         questionID: newQuestion.ID,
         attachmentID: new UniqueEntityID('1'),
       }),
-    )
-    inMemoryQuestionAttachmentsRepository.items.push(
       makeQuestionAttachment({
         questionID: newQuestion.ID,
         attachmentID: new UniqueEntityID('2'),
