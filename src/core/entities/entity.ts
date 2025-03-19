@@ -12,4 +12,16 @@ export class Entity<Props> {
     this.props = props
     this._ID = ID ?? new UniqueEntityID()
   }
+
+  public equals(entity: Entity<any>) {
+    if (entity === this) {
+      return true
+    }
+
+    if (entity.ID === this._ID) {
+      return true
+    }
+
+    return false
+  }
 }
