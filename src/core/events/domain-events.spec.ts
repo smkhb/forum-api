@@ -43,7 +43,7 @@ describe('Domain Events', () => {
     // Estou salvando a resposta no banco de dados e assim disparando o evento
     DomainEvents.dispatchEventsForAggregate(aggregate.ID)
 
-    // O subscriber ouve o evento e faz o que precisa ser feito com o dado
+    // O subs ouve o evento e faz o que precisa ser feito com o dado
     expect(callbackSpy).toHaveBeenCalled()
     expect(aggregate.domainEvents).toHaveLength(0)
   })

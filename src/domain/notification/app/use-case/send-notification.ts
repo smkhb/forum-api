@@ -3,7 +3,7 @@ import { Either, right } from '@/core/either'
 import { Notification } from '../../enterprise/entities/notification'
 import { NotificationsRepo } from '../repos/notifications-repo'
 
-interface SendNotificationUseCaseResquest {
+interface SendNotificationUseCaseRequest {
   recipientID: string
   title: string
   content: string
@@ -21,7 +21,7 @@ export class SendNotificationUseCase {
     recipientID,
     title,
     content,
-  }: SendNotificationUseCaseResquest): Promise<SendNotificationUseCaseResponse> {
+  }: SendNotificationUseCaseRequest): Promise<SendNotificationUseCaseResponse> {
     const notification = Notification.create({
       recipientID: new UniqueEntityID(recipientID),
       title,
